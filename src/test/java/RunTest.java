@@ -1,8 +1,23 @@
 import iFellow.ClockDegreeCalc;
 import org.junit.jupiter.api.*;
+import static com.codeborne.selenide.Selenide.open;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static com.codeborne.selenide.Selenide.$;
 
 public class RunTest {
 
+//    @Nested
+//    class openTest {
+//        @Test
+//        public void main(String[] args) {
+//            open("https://demoqa.com/automation-practice-form");
+//            $("#firstName").setValue("Vladislav");
+//        }
+//    }
+    
     @Test
     @DisplayName("24 hours format test")
     public void degree1Test(){
