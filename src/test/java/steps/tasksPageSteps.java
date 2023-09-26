@@ -13,59 +13,65 @@ public class tasksPageSteps extends tasksPageElements {
 
     }
 
-    public static void search() {
-        searchInput.setValue("TestSelenium");
+    public static void search(String searchInputParam) {
+        searchInput.setValue(searchInputParam);
         firstSearchResult.click();
     }
 
-    public static void completeTask() {
+    public static void completeTask(String searchSortTestParam,
+                                    String searchFilterTestParam,
+                                    String taskStatusCheckDoneParam,
+                                    String taskStatusCheckInWorkParam,
+                                    String taskStatusCheckReopenParam,
+                                    String taskStatusCheckFinishedParam,
+                                    String taskStatusCheckFinished2Param) {
         searchFilter.click();
         myOpenedTasks.click();
-        Assertions.assertEquals(searchFilterTest.getText(), "Мои открытые задачи");
+        Assertions.assertEquals(searchFilterTest.getText(), searchFilterTestParam);
 
         filterActivation.click();
         filterByDate.click();
         sleep(1000);
-        Assertions.assertEquals(searchSortTest.getText(), "Сортировать по Cоздано");
+        Assertions.assertEquals(searchSortTest.getText(), searchSortTestParam);
 
         lastTask.click();
 
         inProgressTask.click();
         sleep(1000);
-        Assertions.assertEquals(taskStatusCheck.getText(), "В РАБОТЕ");
+        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckInWorkParam);
 
         businessProcessTask.click();
         executedTask.click();
         submitButtonTask.click();
         sleep(1000);
-        Assertions.assertEquals(taskStatusCheck.getText(), "РЕШЕННЫЕ");
+        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckDoneParam);
 
         businessProcessTask.click();
         reopenedTask.click();
         submitButtonTask.click();
         sleep(1000);
-        Assertions.assertEquals(taskStatusCheck.getText(), "ПЕРЕОТКРЫТ");
+        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckReopenParam);
 
         businessProcessTask.click();
         inWorkTask.click();
         sleep(1000);
-        Assertions.assertEquals(taskStatusCheck.getText(), "В РАБОТЕ");
+        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckInWorkParam);
 
         businessProcessTask.click();
         executedTask.click();
         submitButtonTask.click();
         sleep(1000);
-        Assertions.assertEquals(taskStatusCheck.getText(), "РЕШЕННЫЕ");
+        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckDoneParam);
 
         businessProcessTask.click();
         approvedTask.click();
         submitButtonTask.click();
         sleep(1000);
-        Assertions.assertEquals(taskStatusCheck.getText(), "ГОТОВО");
+        Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckFinishedParam);
 
         doneTask.click();
         sleep(1000);
-        Assertions.assertEquals(taskStatusCheck2.getText(), "Готово");
+        Assertions.assertEquals(taskStatusCheck2.getText(), taskStatusCheckFinished2Param);
 
     }
 }

@@ -6,39 +6,60 @@ import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class singleTaskPageSteps extends singleTaskPageElement {
+
     public static void taskCheck() {
         System.out.println("Статус текущей задачи:" + status.getText());
         System.out.println("Версия текущей задачи:" + version.getText());
     }
-    public static void taskTest() {
-        Assertions.assertEquals(issueType.getValue(), "Ошибка");
-        Assertions.assertEquals(issueValue.getValue(), "TestSelenium");
-        Assertions.assertEquals(versionField.getText(), "Version 2.0");
-        Assertions.assertEquals(priorityField.getValue(), "Medium");
-        Assertions.assertEquals(labelSelectTest.getText(), "bugBuzzers");
-        Assertions.assertEquals(descriptionArea.getValue(), "Шаги:  1.Тест вызванных функций  2.Проверка результатов тестирования");
-        Assertions.assertEquals(testEnvironmentArea.getValue(), "local machine");
+    public static void taskTest (String issueTypeParam,
+                                 String issueValueParam,
+                                 String versionFieldParam,
+                                 String priorityFieldParam,
+                                 String labelSelectTestParam,
+                                 String descriptionAreaParam,
+                                 String testEnvironmentAreaParam) {
+        Assertions.assertEquals(issueType.getValue(), issueTypeParam);
+        Assertions.assertEquals(issueValue.getValue(), issueValueParam);
+        Assertions.assertEquals(versionField.getText(), versionFieldParam);
+        Assertions.assertEquals(priorityField.getValue(), priorityFieldParam);
+        Assertions.assertEquals(labelSelectTest.getText(), labelSelectTestParam);
+        Assertions.assertEquals(descriptionArea.getValue(), descriptionAreaParam);
+        Assertions.assertEquals(testEnvironmentArea.getValue(), testEnvironmentAreaParam);
     }
-    public static void createTask() {
+    public static void createTask(String issueTypeParam,
+                                  String issueValueParam,
+                                  String versionFieldParam,
+                                  String priorityFieldParam,
+                                  String labelSelectTestParam,
+                                  String descriptionAreaParam,
+                                  String testEnvironmentAreaParam) {
         create.click();
-        if (!issueType2.getValue().equals("Ошибка")) {
+        if (!issueType2.getValue().equals(issueTypeParam)) {
             issueType.click();
             sleep(1000);
             issueTypeBug.click();
         }
-        issueValue.setValue("TestSelenium");
-        descriptionArea.sendKeys("Шаги:  1.Тест вызванных функций  2.Проверка результатов тестирования");
+        issueValue.setValue(issueValueParam);
+        descriptionArea.sendKeys(descriptionAreaParam);
         versionField.click();
-        if (!priorityFieldMedium.getValue().equals("Medium")) {
+        if (!priorityFieldMedium.getValue().equals(priorityFieldParam)) {
             priorityField.click();
             priorityFieldMedium.click();
         }
-        labelSelect.sendKeys("bugBuzzers");
+        labelSelect.sendKeys(labelSelectTestParam);
         labelSelect.sendKeys(Keys.RETURN);
-        testEnvironmentArea.sendKeys("local machine");
+        testEnvironmentArea.sendKeys(testEnvironmentAreaParam);
         usedVersions.click();
         chooseExecutor.click();
-        taskTest();
+
+        taskTest(issueTypeParam,
+                 issueValueParam,
+                 versionFieldParam,
+                 priorityFieldParam,
+                 labelSelectTestParam,
+                 descriptionAreaParam,
+                 testEnvironmentAreaParam);
+
         createTaskSubmit.click();
         tasksPage.click();
     }

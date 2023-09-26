@@ -9,13 +9,25 @@ public class cssXpathTest extends webHooks {
     @Test
     public void jiraTest() {
         chromeTest();
-        loginFunc();
+        loginFunc(loginInputParam, passwordInputParam);
         goToRequiredProject();
         showAmountOfCompletedTasks();
-        search();
+        search(searchInputParam);
         taskCheck();
-        createTask();
-        completeTask();
+        createTask(issueTypeParam,
+                   issueValueParam,
+                   versionFieldParam,
+                   priorityFieldParam,
+                   labelSelectTestParam,
+                   descriptionAreaParam,
+                   testEnvironmentAreaParam);
+        completeTask(searchSortTestParam,
+                     searchFilterTestParam,
+                     taskStatusCheckDoneParam,
+                     taskStatusCheckInWorkParam,
+                     taskStatusCheckReopenParam,
+                     taskStatusCheckFinishedParam,
+                     taskStatusCheckFinished2Param);
     }
 
 
