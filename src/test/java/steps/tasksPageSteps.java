@@ -1,6 +1,7 @@
 package steps;
 
 import elements.tasksPageElements;
+import io.cucumber.java.ru.Дано;
 import org.junit.jupiter.api.Assertions;
 import static com.codeborne.selenide.Selenide.sleep;
 
@@ -12,7 +13,6 @@ public class tasksPageSteps extends tasksPageElements {
         System.out.println("Количество задач в проекте:" + words[2]);
 
     }
-
     public static void search(String searchInputParam) {
         searchInput.setValue(searchInputParam);
         firstSearchResult.click();
@@ -37,40 +37,40 @@ public class tasksPageSteps extends tasksPageElements {
         lastTask.click();
 
         inProgressTask.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckInWorkParam);
 
         businessProcessTask.click();
         executedTask.click();
         submitButtonTask.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckDoneParam);
 
         businessProcessTask.click();
         reopenedTask.click();
         submitButtonTask.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckReopenParam);
 
         businessProcessTask.click();
         inWorkTask.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckInWorkParam);
 
         businessProcessTask.click();
         executedTask.click();
         submitButtonTask.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckDoneParam);
 
         businessProcessTask.click();
         approvedTask.click();
         submitButtonTask.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(taskStatusCheck.getText(), taskStatusCheckFinishedParam);
 
         doneTask.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(taskStatusCheck2.getText(), taskStatusCheckFinished2Param);
 
     }
