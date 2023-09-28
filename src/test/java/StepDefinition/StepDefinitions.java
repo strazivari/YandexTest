@@ -1,32 +1,16 @@
 package StepDefinition;
 
 import io.cucumber.java.ru.Дано;
+import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.Keys;
 import steps.authPageSteps;
 import steps.mainPageSteps;
 import steps.singleTaskPageSteps;
 import steps.tasksPageSteps;
 import Hooks.webHooks;
-import io.cucumber.java.ru.Дано;
-import io.cucumber.java.ru.И;
-import io.cucumber.java.ru.Когда;
-import io.cucumber.java.ru.Тогда;
-import steps.*;
-
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static elements.authPageElements.loginInput;
-
 public class StepDefinitions extends webHooks {
     @Дано("Начальная страница")
             public void chromeTest() {
@@ -69,21 +53,5 @@ public class StepDefinitions extends webHooks {
                                        labelSelectTestParam,
                                        descriptionAreaParam,
                                        testEnvironmentAreaParam);
-    }
-    @Дано("Пользователь сортирует элементы списка заданий по ключу: {string}, фильтрует элементы списка по {string}, проходит по бизнес-процессам {string} {string} {string} {string} {string}")
-    public static void completeTask(String searchSortTestParam,
-                                    String searchFilterTestParam,
-                                    String taskStatusCheckDoneParam,
-                                    String taskStatusCheckInWorkParam,
-                                    String taskStatusCheckReopenParam,
-                                    String taskStatusCheckFinishedParam,
-                                    String taskStatusCheckFinished2Param) {
-        tasksPageSteps.completeTask(searchSortTestParam,
-                                    searchFilterTestParam,
-                                    taskStatusCheckDoneParam,
-                                    taskStatusCheckInWorkParam,
-                                    taskStatusCheckReopenParam,
-                                    taskStatusCheckFinishedParam,
-                                    taskStatusCheckFinished2Param);
     }
 }

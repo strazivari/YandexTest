@@ -1,18 +1,12 @@
 package Hooks;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static elements.authPageElements.loginInput;
 
 import elements.param;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.junit.Cucumber;
-import org.junit.Before;
-import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
-
-import java.time.Duration;
 
 
 @RunWith(Cucumber.class)
