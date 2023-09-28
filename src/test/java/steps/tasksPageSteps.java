@@ -17,7 +17,6 @@ public class tasksPageSteps extends tasksPageElements {
         searchInput.setValue(searchInputParam);
         firstSearchResult.click();
     }
-
     public static void completeTask(String searchSortTestParam,
                                     String searchFilterTestParam,
                                     String taskStatusCheckDoneParam,
@@ -31,7 +30,7 @@ public class tasksPageSteps extends tasksPageElements {
 
         filterActivation.click();
         filterByDate.click();
-        sleep(1000);
+        sleep(2000);
         Assertions.assertEquals(searchSortTest.getText(), searchSortTestParam);
 
         lastTask.click();

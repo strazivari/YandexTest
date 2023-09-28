@@ -3,8 +3,6 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/features/cucumber.feature", glue = {"StepDefinition", "Hooks"})
-
-public class TestRunner{
-
+@CucumberOptions(features = "src/test/resources/features/cucumber.feature", glue = {"StepDefinition", "hooks"}, plugin = "pretty", publish = true)
+public class TestRunner {
 }
