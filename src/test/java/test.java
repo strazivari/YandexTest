@@ -1,9 +1,12 @@
 import org.junit.jupiter.api.Test;
 
-import static api.apiSteps.someApiFunc;
+import static api.apiSteps.*;
 
 public class test {
     @Test public void SomeTest(){
-        someApiFunc("130");
+        gettingCharLoc("2");
+        gettingLastEpisode();
+        gettingCharLastEpisode();
+        gettingCharInfoLastEpisode();
     }
 }
