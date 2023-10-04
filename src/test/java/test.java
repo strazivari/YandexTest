@@ -8,5 +8,7 @@ public class test {
         gettingLastEpisode();
         gettingCharLastEpisode();
         gettingCharInfoLastEpisode();
+        locCheck();
+        speciesCheck();
     }
 }

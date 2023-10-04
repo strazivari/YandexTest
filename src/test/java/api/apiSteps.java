@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import jdk.nashorn.internal.parser.JSONParser;
 import org.json.JSONObject;
+import org.junit.jupiter.api.Assertions;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
@@ -13,7 +14,10 @@ public class apiSteps {
     public static String charId;
     public static String lastEpisode;
     public static String lastChar;
-    public static String episodeLastChar;
+    public static String lastCharSpecies;
+    public static String lastCharLocation;
+    public static String charSpecies;
+
     public static void gettingCharLoc(String id){
         Response gettingCharLoc = given()
                 .baseUri("https://rickandmortyapi.com/api")
@@ -25,6 +29,7 @@ public class apiSteps {
                 .response();
         charLoc = new JSONObject(gettingCharLoc.getBody().asString()).getJSONObject("location").get("name").toString();
         charId = new JSONObject(gettingCharLoc.getBody().asString()).get("id").toString();
+        charSpecies = new JSONObject(gettingCharLoc.getBody().asString()).get("species").toString();
     }
     public static void gettingLastEpisode(){
         Response gettingLastEpisode = given()
@@ -60,8 +65,16 @@ public class apiSteps {
                 .log().all()
                 .extract()
                 .response();
-            new JSONObject(gettingCharInfoLastEpisode.getBody().asString()).getJSONObject("location").get("name").toString();
-           String help = new JSONObject(gettingCharInfoLastEpisode.getBody().asString()).get("species").toString();
-        System.out.println(help);
+        lastCharSpecies = new JSONObject(gettingCharInfoLastEpisode.getBody().asString()).get("species").toString();
+        lastCharLocation = new JSONObject(gettingCharInfoLastEpisode.getBody().asString()).getJSONObject("location").get("name").toString();
+        System.out.println(lastCharSpecies);
+        System.out.println(lastCharLocation);
+    }
+    public static void locCheck() {
+        Assertions.assertEquals(charLoc, lastCharLocation, "Вид не совпадает");
+    }
+
+    public static void speciesCheck() {
+        Assertions.assertNotEquals(charSpecies, lastCharSpecies, "Локации не совпадают");
     }
 }
