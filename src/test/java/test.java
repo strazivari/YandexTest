@@ -17,6 +17,6 @@ public class test {
     }
     @Test
     public void jsonTest() throws IOException {
-        getJSONFromFile("src/test/resources/potato.json");
+        getJSONFromFile();
     }
 }

@@ -1,49 +1,46 @@
 package api;
 
+import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static io.restassured.RestAssured.given;
-
-
 public class PotatoApi {
-
-    public static JSONObject getJSONFromFile(String path) throws IOException {
+    private static JSONObject sendJson;
+    public static JSONObject getJSONFromFile() throws IOException {
         // (1) Read JSON file into a string and attempt to parse it.
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        String json = new String(encoded, "UTF-8");
+        byte[] encoded = Files.readAllBytes(Paths.get("src/test/resources/potato.json"));
+        JSONObject json = new JSONObject(encoded, "UTF-8");
         json.put("name", "Tomato");
         json.put("job", "Eat maket");
+        sendJson = new JSONObject(postRequest(json).getBody().asString());
         return null;
     }
-    public static void postRequest() throws IOException {
-    Response postRequest = given()
-            .baseUri("https://reqres.in/")
-            .when()
-            .get("application/json;charset=UTF-8")
-            .then()
-            .log().all()
-            .statusCode(200)
-            .extract()
-            .response();
-    JSONObject potatoInfo = new JSONObject();
+    public static Response postRequest(JSONObject json) {
+        return given()
+                .baseUri("https://reqres.in/")
+                .contentType("application/json;charset=UTF-8")
+                .when()
+                .body(json.toString())
+                .post("api/users")
+                .then()
+                .statusCode(200)
+                .extract().response();
 }
     public static void nameCheck() {
-        Assertions.assertEquals(charLoc, lastCharLocation, "Вид не совпадает");
+        Assertions.assertEquals(sendJson.getString("name"), "Tomato");
     }
 
     public static void jobCheck() {
-        Assertions.assertNotEquals(charSpecies, lastCharSpecies, "Локации не совпадают");
+       Assertions.assertNotEquals(sendJson.getString("job"), "Eat maket");
     }
     public static void idCheck() {
-        Assertions.assertNotEquals(charSpecies, lastCharSpecies, "Локации не совпадают");
-    }
+        Assertions.assertNotNull(sendJson.getString("id"));
+   }
     public static void createdAtCheck() {
-        Assertions.assertNotEquals(charSpecies, lastCharSpecies, "Локации не совпадают");
+        Assertions.assertNotNull(sendJson.getString("createdAt"));
     }
 }
