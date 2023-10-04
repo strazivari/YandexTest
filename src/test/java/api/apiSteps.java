@@ -60,8 +60,8 @@ public class apiSteps {
                 .log().all()
                 .extract()
                 .response();
-        
-        String obj = new JSONObject(gettingCharInfoLastEpisode.getBody().asString()).getJSONObject("species").toString();
-
+            new JSONObject(gettingCharInfoLastEpisode.getBody().asString()).getJSONObject("location").get("name").toString();
+           String help = new JSONObject(gettingCharInfoLastEpisode.getBody().asString()).get("species").toString();
+        System.out.println(help);
     }
 }
