@@ -1,15 +1,13 @@
 package api;
 
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 
-public class apiSteps {
+public class RickMortyApi {
     public static String charLoc;
     public static String charId;
     public static String lastEpisode;
