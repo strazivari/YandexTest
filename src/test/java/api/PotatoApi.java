@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 public class PotatoApi {
     private static JSONObject sendJson;
     public static JSONObject getJSONFromFile() throws IOException {
-        // (1) Read JSON file into a string and attempt to parse it.
         byte[] encoded = Files.readAllBytes(Paths.get("src/test/resources/potato.json"));
         JSONObject json = new JSONObject(encoded, "UTF-8");
         json.put("name", "Tomato");
@@ -27,13 +26,13 @@ public class PotatoApi {
                 .body(json.toString())
                 .post("api/users")
                 .then()
-                .statusCode(200)
-                .extract().response();
+                .statusCode(201)
+                .extract()
+                .response();
 }
     public static void nameCheck() {
         Assertions.assertEquals(sendJson.getString("name"), "Tomato");
     }
-
     public static void jobCheck() {
        Assertions.assertNotEquals(sendJson.getString("job"), "Eat maket");
     }

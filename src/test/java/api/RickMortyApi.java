@@ -3,9 +3,7 @@ package api;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.hasItem;
 
 public class RickMortyApi {
     public static String charLoc;
@@ -71,7 +69,6 @@ public class RickMortyApi {
     public static void locCheck() {
         Assertions.assertEquals(charLoc, lastCharLocation, "Вид не совпадает");
     }
-
     public static void speciesCheck() {
         Assertions.assertNotEquals(charSpecies, lastCharSpecies, "Локации не совпадают");
     }
