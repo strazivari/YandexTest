@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
+import static api.PotatoApi.getJSONFromFile;
 import static api.RickMortyApi.*;
 
 public class test {
@@ -13,7 +16,7 @@ public class test {
         speciesCheck();
     }
     @Test
-    public void jsonTest() {
-
+    public void jsonTest() throws IOException {
+        getJSONFromFile("src/test/resources/potato.json");
     }
 }
