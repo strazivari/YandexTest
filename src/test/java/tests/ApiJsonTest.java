@@ -1,13 +1,15 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
+
 import static api.PotatoApi.*;
 import static api.RickMortyApi.*;
 
 public class ApiJsonTest {
     @Test
-    public void rickMortyTest(){
+    public void rickMortyTest() {
         rickMorty("2");
         gettingLastEpisode();
         gettingCharLastEpisode();
@@ -15,6 +17,7 @@ public class ApiJsonTest {
         locCheck(charLoc, lastCharLocation);
         speciesCheck(charSpecies, lastCharSpecies);
     }
+
     @Test
     public void jsonTest() throws IOException {
         getJSONFromFile();
