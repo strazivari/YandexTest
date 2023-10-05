@@ -2,7 +2,8 @@ package Tests;
 
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-import static api.PotatoApi.getJSONFromFile;
+
+import static api.PotatoApi.*;
 import static api.RickMortyApi.*;
 
 public class test {
@@ -18,5 +19,9 @@ public class test {
     @Test
     public void jsonTest() throws IOException {
         getJSONFromFile();
+        nameCheck();
+        jobCheck();
+        idCheck();
+        createdAtCheck();
     }
 }

@@ -34,7 +34,7 @@ public class PotatoApi {
         Assertions.assertEquals(sendJson.getString("name"), "Tomato");
     }
     public static void jobCheck() {
-       Assertions.assertNotEquals(sendJson.getString("job"), "Eat maket");
+       Assertions.assertEquals(sendJson.getString("job"), "Eat maket");
     }
     public static void idCheck() {
         Assertions.assertNotNull(sendJson.getString("id"));
