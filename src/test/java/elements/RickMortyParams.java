@@ -1,6 +1,6 @@
 package elements;
 
-public class rickMortyParams {
+public class RickMortyParams {
     public static String characterLink = "/character/";
     public static String episodeLink = "/episode/";
     public static String charLoc;

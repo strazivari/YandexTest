@@ -43,5 +43,11 @@ public class ApiTemplate {
         } catch (AssertionError e) {
             System.out.println(e.getMessage());
         }
+    }public static void testParams2(String key, String message) {
+        try {
+            Assertions.assertNotNull(key, message);
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

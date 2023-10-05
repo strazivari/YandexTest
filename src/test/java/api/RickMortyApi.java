@@ -1,11 +1,11 @@
 package api;
 
-import elements.rickMortyParams;
+import elements.RickMortyParams;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
+
 import static api.ApiTemplate.*;
 
-public class RickMortyApi extends rickMortyParams {
+public class RickMortyApi extends RickMortyParams {
     public static void rickMorty(String id){
         Response gettingCharLoc = characterModule(characterLink, id);
         charLoc = optionParseObj(gettingCharLoc, "location", "name");

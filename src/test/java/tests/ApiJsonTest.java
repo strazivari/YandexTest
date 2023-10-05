@@ -1,11 +1,11 @@
-package Tests;
+package tests;
 
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import static api.PotatoApi.*;
 import static api.RickMortyApi.*;
 
-public class test {
+public class ApiJsonTest {
     @Test
     public void rickMortyTest(){
         rickMorty("2");

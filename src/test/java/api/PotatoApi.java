@@ -1,6 +1,7 @@
 package api;
 
 import static api.ApiTemplate.testParams;
+import static api.ApiTemplate.testParams2;
 import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -31,15 +32,15 @@ public class PotatoApi {
                 .response();
 }
     public static void nameCheck() {
-        testParams("name", "Tomato", "Wrong name");
+        testParams(sendJson.getString("name"), "Tomato", "Wrong name");
     }
     public static void jobCheck() {
-        testParams("job", "Eat maket", "Wrong job");
+        testParams(sendJson.getString("job"), "Eat maket", "Wrong job");
     }
     public static void idCheck() {
-        testParams("id", "Wrong id");
+        testParams2(sendJson.getString("id"), "Wrong id");
     }
     public static void createdAtCheck() {
-        testParams("createdAt", "Wrong creation time");
+        testParams2(sendJson.getString("createdAt"), "Wrong creation time");
     }
 }
