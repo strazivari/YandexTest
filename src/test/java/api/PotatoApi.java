@@ -1,9 +1,9 @@
 package api;
 
+import static api.ApiTemplate.testPotato;
 import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.junit.jupiter.api.Assertions;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -31,31 +31,15 @@ public class PotatoApi {
                 .response();
 }
     public static void nameCheck() {
-        try {
-            Assertions.assertEquals(sendJson.getString("name"), "Tomato", "Wrong name");
-        } catch (AssertionError e) {
-            System.out.println(e.getMessage());
-        }
+        testPotato("name", "Tomato", "Wrong name");
     }
     public static void jobCheck() {
-        try {
-            Assertions.assertEquals(sendJson.getString("job"), "Eat maket", "Wrong job");
-        } catch (AssertionError e) {
-            System.out.println(e.getMessage());
-        }
+        testPotato("job", "Eat maket", "Wrong job");
     }
     public static void idCheck() {
-        try {
-            Assertions.assertNotNull(sendJson.getString("id"), "Wrong id");
-        } catch (AssertionError e) {
-            System.out.println(e.getMessage());
-        }
+        testPotato("id", "Wrong id");
     }
     public static void createdAtCheck() {
-        try {
-            Assertions.assertNotNull(sendJson.getString("createdAt"), "Wrong creation time");
-        } catch (AssertionError e) {
-            System.out.println(e.getMessage());
-        }
+        testPotato("createdAt", "Wrong creation time");
     }
 }
