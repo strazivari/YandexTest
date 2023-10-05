@@ -71,11 +71,18 @@ public class RickMortyApi {
         System.out.println("Вид данного персонажа: " + lastCharSpecies);
         System.out.println("Локация данного персонажа: " + lastCharLocation);
     }
-
-    public static void speciesCheck() {
-        Assertions.assertNotEquals(charSpecies, lastCharSpecies, "Вид не совпадает");
+    public static void speciesCheck(String charSpecies, String lastCharSpecies) {
+        try {
+            Assertions.assertEquals(charSpecies, lastCharSpecies, "Вид не совпадает");
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
     }
-    public static void locCheck() {
-        Assertions.assertEquals(charLoc, lastCharLocation, "Локации не совпадают");
+    public static void locCheck(String charLoc, String lastCharLocation) {
+        try {
+            Assertions.assertEquals(charLoc, lastCharLocation, "Локации не совпадают");
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

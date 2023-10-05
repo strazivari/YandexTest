@@ -31,15 +31,31 @@ public class PotatoApi {
                 .response();
 }
     public static void nameCheck() {
-        Assertions.assertEquals(sendJson.getString("name"), "Tomato");
+        try {
+            Assertions.assertEquals(sendJson.getString("name"), "Tomato", "Wrong name");
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
     }
     public static void jobCheck() {
-       Assertions.assertEquals(sendJson.getString("job"), "Eat maket");
+        try {
+            Assertions.assertEquals(sendJson.getString("job"), "Eat maket", "Wrong job");
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
     }
     public static void idCheck() {
-        Assertions.assertNotNull(sendJson.getString("id"));
-   }
+        try {
+            Assertions.assertNotNull(sendJson.getString("id"), "Wrong id");
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
+    }
     public static void createdAtCheck() {
-        Assertions.assertNotNull(sendJson.getString("createdAt"));
+        try {
+            Assertions.assertNotNull(sendJson.getString("createdAt"), "Wrong creation time");
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

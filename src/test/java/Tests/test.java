@@ -13,8 +13,8 @@ public class test {
         gettingLastEpisode();
         gettingCharLastEpisode();
         gettingCharInfoLastEpisode();
-        locCheck();
-        speciesCheck();
+        locCheck(charLoc, lastCharLocation);
+        speciesCheck(charSpecies, lastCharSpecies);
     }
     @Test
     public void jsonTest() throws IOException {
