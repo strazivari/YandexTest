@@ -1,22 +1,11 @@
 package api;
 
+import elements.rickMortyParams;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import static api.ApiTemplate.*;
 
 public class RickMortyApi extends rickMortyParams {
-    public static String characterLink = "/character/";
-    public static String episodeLink = "/episode/";
-    public static String charLoc;
-    public static String charId;
-    public static String lastEpisode;
-    public static String lastChar;
-    public static String lastCharSpecies;
-    public static String lastCharLocation;
-    public static String charSpecies;
-    public static String charName;
-    public static String lastCharName;
-
     public static void rickMorty(String id){
         Response gettingCharLoc = characterModule(characterLink, id);
         charLoc = optionParseObj(gettingCharLoc, "location", "name");
@@ -53,17 +42,9 @@ public class RickMortyApi extends rickMortyParams {
         System.out.println("Локация данного персонажа: " + lastCharLocation);
     }
     public static void speciesCheck(String charSpecies, String lastCharSpecies) {
-        try {
-            Assertions.assertEquals(charSpecies, lastCharSpecies, "Вид не совпадает");
-        } catch (AssertionError e) {
-            System.out.println(e.getMessage());
-        }
+        testParams(charSpecies, lastCharSpecies, "Вид не совпадает");
     }
     public static void locCheck(String charLoc, String lastCharLocation) {
-        try {
-            Assertions.assertEquals(charLoc, lastCharLocation, "Локации не совпадают");
-        } catch (AssertionError e) {
-            System.out.println(e.getMessage());
-        }
+        testParams(charLoc, lastCharLocation, "Локации не совпадают");
     }
 }

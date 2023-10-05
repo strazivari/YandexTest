@@ -2,7 +2,6 @@ package Tests;
 
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-
 import static api.PotatoApi.*;
 import static api.RickMortyApi.*;
 

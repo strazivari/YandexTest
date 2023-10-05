@@ -30,14 +30,14 @@ public class ApiTemplate {
     public static String optionParseObj(Response request, String option, String optionParam) {
         return new JSONObject(request.getBody().asString()).getJSONObject(option).get(optionParam).toString();
     }
-    public static void testPotato(String key, String actual, String message) {
+    public static void testParams(String key, String actual, String message) {
         try {
             Assertions.assertEquals(key, actual, message);
         } catch (AssertionError e) {
             System.out.println(e.getMessage());
         }
     }
-    public static void testPotato(String key, String message) {
+    public static void testParams(String key, String message) {
         try {
             Assertions.assertEquals(key, message);
         } catch (AssertionError e) {

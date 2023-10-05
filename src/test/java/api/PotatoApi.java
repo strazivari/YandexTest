@@ -1,6 +1,6 @@
 package api;
 
-import static api.ApiTemplate.testPotato;
+import static api.ApiTemplate.testParams;
 import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -31,15 +31,15 @@ public class PotatoApi {
                 .response();
 }
     public static void nameCheck() {
-        testPotato("name", "Tomato", "Wrong name");
+        testParams("name", "Tomato", "Wrong name");
     }
     public static void jobCheck() {
-        testPotato("job", "Eat maket", "Wrong job");
+        testParams("job", "Eat maket", "Wrong job");
     }
     public static void idCheck() {
-        testPotato("id", "Wrong id");
+        testParams("id", "Wrong id");
     }
     public static void createdAtCheck() {
-        testPotato("createdAt", "Wrong creation time");
+        testParams("createdAt", "Wrong creation time");
     }
 }
