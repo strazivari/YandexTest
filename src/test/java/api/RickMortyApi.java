@@ -1,11 +1,21 @@
 package api;
 
-import elements.RickMortyParams;
 import io.restassured.response.Response;
 
 import static api.ApiTemplate.*;
 
-public class RickMortyApi extends RickMortyParams {
+public class RickMortyApi{
+    public static String characterLink = "/character/";
+    public static String episodeLink = "/episode/";
+    public static String charLoc;
+    public static String charId;
+    public static String lastEpisode;
+    public static String lastChar;
+    public static String lastCharSpecies;
+    public static String lastCharLocation;
+    public static String charSpecies;
+    public static String charName;
+    public static String lastCharName;
     public static void rickMorty(String id) {
         Response gettingCharLoc = characterModule(characterLink, id);
         charLoc = optionParseObj(gettingCharLoc, "location", "name");
