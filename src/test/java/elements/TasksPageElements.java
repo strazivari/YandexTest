@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class tasksPageElements extends param {
+public class TasksPageElements extends PageElementsParams {
     public static SelenideElement tasksPage = $x("(//a[@class='aui-nav-item '])[5]");
     public static SelenideElement completedTasks = $x("//div[@class='showing']");
     //    public static SelenideElement elementsAtSoloPage = $x ("//ol[@class='issue-list']//li[49]");

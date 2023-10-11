@@ -1,11 +1,11 @@
 package steps;
 
-import elements.mainPageElements;
+import elements.MainPageElements;
 import org.junit.jupiter.api.Assertions;
 
-import static elements.authPageElements.loginInput;
+import static elements.AuthPageElements.loginInput;
 
-public class mainPageSteps extends mainPageElements {
+public class MainPageSteps extends MainPageElements {
     public static void goToRequiredProject() {
         listOfCurrentProjects.click();
         requiredProject.click();

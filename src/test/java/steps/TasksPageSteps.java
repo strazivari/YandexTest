@@ -1,11 +1,11 @@
 package steps;
 
-import elements.tasksPageElements;
+import elements.TasksPageElements;
 import org.junit.jupiter.api.Assertions;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
-public class tasksPageSteps extends tasksPageElements {
+public class TasksPageSteps extends TasksPageElements {
     public static void showAmountOfCompletedTasks() {
         tasksPage.click();
         String text = completedTasks.getText();

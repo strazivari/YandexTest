@@ -1,13 +1,13 @@
 package steps;
 
-import elements.authPageElements;
+import elements.AuthPageElements;
 import org.junit.jupiter.api.Assertions;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 
-public class authPageSteps extends authPageElements {
+public class AuthPageSteps extends AuthPageElements {
     public static void loginFunc(String loginInputParam, String passwordInputParam) {
         loginInput.setValue(loginInputParam);
         passwordInput.setValue(passwordInputParam);

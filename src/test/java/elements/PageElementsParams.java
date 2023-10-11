@@ -1,6 +1,6 @@
 package elements;
 
-public class param {
+public class PageElementsParams {
     public String loginInputParam = "AT16";
     public String issueTypeParam = "Ошибка";
     public String priorityFieldParam = "Medium";

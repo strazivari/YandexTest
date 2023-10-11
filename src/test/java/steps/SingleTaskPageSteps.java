@@ -1,12 +1,12 @@
 package steps;
 
-import elements.singleTaskPageElement;
+import elements.SingleTaskPageElement;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
-public class singleTaskPageSteps extends singleTaskPageElement {
+public class SingleTaskPageSteps extends SingleTaskPageElement {
 
     public static void taskCheck() {
         System.out.println("Статус текущей задачи:" + status.getText());
