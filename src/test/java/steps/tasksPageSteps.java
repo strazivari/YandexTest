@@ -2,6 +2,7 @@ package steps;
 
 import elements.tasksPageElements;
 import org.junit.jupiter.api.Assertions;
+
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class tasksPageSteps extends tasksPageElements {
@@ -12,10 +13,12 @@ public class tasksPageSteps extends tasksPageElements {
         System.out.println("Количество задач в проекте:" + words[2]);
 
     }
+
     public static void search(String searchInputParam) {
         searchInput.setValue(searchInputParam);
         firstSearchResult.click();
     }
+
     public static void completeTask(String searchSortTestParam,
                                     String searchFilterTestParam,
                                     String taskStatusCheckDoneParam,
@@ -23,6 +26,7 @@ public class tasksPageSteps extends tasksPageElements {
                                     String taskStatusCheckReopenParam,
                                     String taskStatusCheckFinishedParam,
                                     String taskStatusCheckFinished2Param) {
+
         searchFilter.click();
         myOpenedTasks.click();
         Assertions.assertEquals(searchFilterTest.getText(), searchFilterTestParam);

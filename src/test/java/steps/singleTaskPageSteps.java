@@ -3,6 +3,7 @@ package steps;
 import elements.singleTaskPageElement;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
+
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class singleTaskPageSteps extends singleTaskPageElement {
@@ -11,13 +12,14 @@ public class singleTaskPageSteps extends singleTaskPageElement {
         System.out.println("Статус текущей задачи:" + status.getText());
         System.out.println("Версия текущей задачи:" + version.getText());
     }
-    public static void taskTest (String issueTypeParam,
-                                 String issueValueParam,
-                                 String versionFieldParam,
-                                 String priorityFieldParam,
-                                 String labelSelectTestParam,
-                                 String descriptionAreaParam,
-                                 String testEnvironmentAreaParam) {
+
+    public static void taskTest(String issueTypeParam,
+                                String issueValueParam,
+                                String versionFieldParam,
+                                String priorityFieldParam,
+                                String labelSelectTestParam,
+                                String descriptionAreaParam,
+                                String testEnvironmentAreaParam) {
         Assertions.assertEquals(issueType.getValue(), issueTypeParam);
         Assertions.assertEquals(issueValue.getValue(), issueValueParam);
         Assertions.assertEquals(versionField.getText(), versionFieldParam);
@@ -26,6 +28,7 @@ public class singleTaskPageSteps extends singleTaskPageElement {
         Assertions.assertEquals(descriptionArea.getValue(), descriptionAreaParam);
         Assertions.assertEquals(testEnvironmentArea.getValue(), testEnvironmentAreaParam);
     }
+
     public static void createTask(String issueTypeParam,
                                   String issueValueParam,
                                   String versionFieldParam,
@@ -53,12 +56,12 @@ public class singleTaskPageSteps extends singleTaskPageElement {
         chooseExecutor.click();
 
         taskTest(issueTypeParam,
-                 issueValueParam,
-                 versionFieldParam,
-                 priorityFieldParam,
-                 labelSelectTestParam,
-                 descriptionAreaParam,
-                 testEnvironmentAreaParam);
+                issueValueParam,
+                versionFieldParam,
+                priorityFieldParam,
+                labelSelectTestParam,
+                descriptionAreaParam,
+                testEnvironmentAreaParam);
 
         createTaskSubmit.click();
         tasksPage.click();
