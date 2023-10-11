@@ -6,14 +6,18 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import elements.PageElementsParams;
 import io.cucumber.java.Before;
+import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.junit.Cucumber;
+import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.runner.RunWith;
 
 
 public class WebHooks extends PageElementsParams {
     @Before
+    @Step("Открываем начальную страницу")
+    @Дано("Начальная страница")
     public void chromeTest() {
         open("https://edujira.ifellow.ru");
         getWebDriver().manage().window().maximize();

@@ -1,11 +1,13 @@
 package steps;
 
 import elements.TasksPageElements;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class TasksPageSteps extends TasksPageElements {
+    @Step("Провека количества задач в проекте")
     public static void showAmountOfCompletedTasks() {
         tasksPage.click();
         String text = completedTasks.getText();

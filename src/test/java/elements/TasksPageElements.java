@@ -7,7 +7,6 @@ import static com.codeborne.selenide.Selenide.$x;
 public class TasksPageElements extends PageElementsParams {
     public static SelenideElement tasksPage = $x("(//a[@class='aui-nav-item '])[5]");
     public static SelenideElement completedTasks = $x("//div[@class='showing']");
-    //    public static SelenideElement elementsAtSoloPage = $x ("//ol[@class='issue-list']//li[49]");
     public static SelenideElement searchInput = $x("//input[@id='quickSearchInput']");
     public static SelenideElement firstSearchResult = $x("//li[@class='quick-search-result-item' and @original-title='TestSelenium'][1]");
     public static SelenideElement searchFilter = $x("//button[@id='subnav-trigger']");

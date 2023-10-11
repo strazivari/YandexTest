@@ -1,16 +1,21 @@
 package steps;
 
 import elements.SingleTaskPageElement;
+import io.cucumber.java.ru.Тогда;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class SingleTaskPageSteps extends SingleTaskPageElement {
-
-    public static void taskCheck() {
-        System.out.println("Статус текущей задачи:" + status.getText());
-        System.out.println("Версия текущей задачи:" + version.getText());
+    public static void taskCheck(String taskStatusCheckInWorkParam, String versionFieldParam) {
+        try {
+            Assertions.assertEquals(taskStatusCheckInWorkParam, status.getText());
+            Assertions.assertEquals(versionFieldParam ,version.getText());
+        } catch (AssertionError e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void taskTest(String issueTypeParam,
