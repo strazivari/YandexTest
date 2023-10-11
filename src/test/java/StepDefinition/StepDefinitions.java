@@ -34,7 +34,7 @@ public class StepDefinitions extends webHooks {
     public static void search(String searchInputParam) {
         tasksPageSteps.search(searchInputParam);
     }
-@Когда("Откроется страница единичного задания, будут выведены Статус задания и Версия задания")
+    @Когда("Откроется страница единичного задания, будут выведены Статус задания и Версия задания")
     public static void taskCheck() {
         singleTaskPageSteps.taskCheck();
     }
@@ -53,5 +53,22 @@ public class StepDefinitions extends webHooks {
                                        labelSelectTestParam,
                                        descriptionAreaParam,
                                        testEnvironmentAreaParam);
+    }
+
+    @Тогда("Выполняются проверки работоспособности статуса задачи <статус> <статусс> <статуссс> <статусссс> <статуссссс> <статусссссс> <статуссссссс>")
+    public void completeTask(String searchSortTestParam,
+                             String searchFilterTestParam,
+                             String taskStatusCheckDoneParam,
+                             String taskStatusCheckInWorkParam,
+                             String taskStatusCheckReopenParam,
+                             String taskStatusCheckFinishedParam,
+                             String taskStatusCheckFinished2Param) {
+        tasksPageSteps.completeTask(searchSortTestParam,
+                searchFilterTestParam,
+                taskStatusCheckDoneParam,
+                taskStatusCheckInWorkParam,
+                taskStatusCheckReopenParam,
+                taskStatusCheckFinishedParam,
+                taskStatusCheckFinished2Param);
     }
 }
