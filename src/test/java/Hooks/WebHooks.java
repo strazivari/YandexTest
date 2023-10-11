@@ -3,18 +3,27 @@ package Hooks;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import elements.PageElementsParams;
+import io.cucumber.java.Before;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.junit.Cucumber;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.runner.RunWith;
 
 
-@RunWith(Cucumber.class)
 public class WebHooks extends PageElementsParams {
-    @Когда("Окрыт браузер")
+    @Before
     public void chromeTest() {
         open("https://edujira.ifellow.ru");
         getWebDriver().manage().window().maximize();
+    }
+    @Before
+    public static void allureSubThreadParallel() {
+        String listenerName = "AllureSelenide";
+        if(!(SelenideLogger.hasListener(listenerName)))
+            SelenideLogger.addListener(listenerName,
+                    (new AllureSelenide().screenshots(true).savePageSource(false)));
     }
 }
 

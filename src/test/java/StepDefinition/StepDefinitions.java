@@ -4,6 +4,7 @@ import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
+import io.qameta.allure.Step;
 import steps.AuthPageSteps;
 import steps.MainPageSteps;
 import steps.SingleTaskPageSteps;
@@ -14,6 +15,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class StepDefinitions extends WebHooks {
+    @Step
     @Дано("Начальная страница")
     public void chromeTest() {
         open("https://edujira.ifellow.ru");
