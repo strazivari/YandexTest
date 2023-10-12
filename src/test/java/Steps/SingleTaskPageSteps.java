@@ -1,8 +1,6 @@
-package steps;
+package Steps;
 
 import elements.SingleTaskPageElement;
-import io.cucumber.java.ru.Тогда;
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 

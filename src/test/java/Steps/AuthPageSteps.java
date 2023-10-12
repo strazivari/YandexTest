@@ -1,4 +1,4 @@
-package steps;
+package Steps;
 
 import elements.AuthPageElements;
 import org.junit.jupiter.api.Assertions;

@@ -1,4 +1,4 @@
-package steps;
+package Steps;
 
 import elements.TasksPageElements;
 import io.qameta.allure.Step;

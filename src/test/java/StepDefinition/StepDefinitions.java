@@ -6,20 +6,14 @@ import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.DisplayName;
-import steps.AuthPageSteps;
-import steps.MainPageSteps;
-import steps.SingleTaskPageSteps;
-import steps.TasksPageSteps;
-import Hooks.WebHooks;
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import Steps.AuthPageSteps;
+import Steps.MainPageSteps;
+import Steps.SingleTaskPageSteps;
+import Steps.TasksPageSteps;
 
 public class StepDefinitions {
 
-
     @Step("Форма ввода логина, пароля")
-    @DisplayName("Api cucumber test")
     @Когда("Пользователь вводит логин {string}, пароль {string} и нажимает Войти")
     public static void loginFunc(String loginInputParam, String passwordInputParam) {
         AuthPageSteps.loginFunc(loginInputParam, passwordInputParam);
