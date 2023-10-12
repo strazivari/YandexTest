@@ -5,6 +5,7 @@ import static api.ApiTemplate.testParams2;
 import static io.restassured.RestAssured.given;
 
 import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
@@ -31,6 +32,7 @@ public class PotatoApi {
                 .contentType("application/json;charset=UTF-8")
                 .when()
                 .body(json.toString())
+                .filter(new AllureRestAssured())
                 .post("api/users")
                 .then()
                 .statusCode(201)

@@ -1,5 +1,6 @@
 package api;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
@@ -14,6 +15,7 @@ public class ApiTemplate {
         return given()
                 .baseUri(rickMortyApiUrl)
                 .when()
+                .filter(new AllureRestAssured())
                 .get(link + param)
                 .then()
                 .extract()
