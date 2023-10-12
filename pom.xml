@@ -128,12 +128,6 @@
             <artifactId>jsch</artifactId>
             <version>${jsch.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -159,7 +153,7 @@
                     <perCoreThreadCount>${parallelCount}</perCoreThreadCount>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        <!--                        РЅСѓР¶РЅРѕ СѓРєР°Р·Р°С‚СЊ РєРѕРґРёСЂРѕРІРєСѓ РёРЅР°С‡Рµ РІ С‚РµСЂРјРёРЅР°Р»Рµ РЅРµ Р±СѓРґРµС‚ РєРёСЂРёР»РёС†С‹ Сѓ С„РёС‡ РєСѓРєСѓРјР±РµСЂР°-->
+                        <!--                        нужно указать кодировку иначе в терминале не будет кирилицы у фич кукумбера-->
                         -Dfile.encoding=UTF-8
                     </argLine>
                     <failIfNoTests>true</failIfNoTests>
