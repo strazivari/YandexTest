@@ -14,7 +14,8 @@ import java.nio.file.Paths;
 
 public class PotatoApi {
     private static JSONObject sendJson;
-    @Step
+
+    @Step("JSON запрос PUT name, job. Получение объекта JSON")
     public static JSONObject getJSONFromFile() throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get("src/test/resources/potato.json"));
         JSONObject json = new JSONObject(encoded, "UTF-8");
@@ -23,7 +24,7 @@ public class PotatoApi {
         sendJson = new JSONObject(postRequest(json).getBody().asString());
         return null;
     }
-    @Step
+
     public static Response postRequest(JSONObject json) {
         return given()
                 .baseUri("https://reqres.in/")
@@ -36,19 +37,23 @@ public class PotatoApi {
                 .extract()
                 .response();
     }
-    @Step
+
+    @Step("Проверка имени")
     public static void nameCheck() {
         testParams(sendJson.getString("name"), "Tomato", "Wrong name");
     }
-    @Step
+
+    @Step("Проверка професси")
     public static void jobCheck() {
         testParams(sendJson.getString("job"), "Eat maket", "Wrong job");
     }
-    @Step
+
+    @Step("Проверка id")
     public static void idCheck() {
         testParams2(sendJson.getString("id"), "Wrong id");
     }
-    @Step
+
+    @Step("Проверка даты создания")
     public static void createdAtCheck() {
         testParams2(sendJson.getString("createdAt"), "Wrong creation time");
     }
